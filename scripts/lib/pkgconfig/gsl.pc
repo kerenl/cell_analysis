@@ -1,0 +1,11 @@
+prefix=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/gsl/1.15
+exec_prefix=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/gsl/1.15
+libdir=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/gsl/1.15/lib
+includedir=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/gsl/1.15/include
+GSL_CBLAS_LIB=-lgslcblas
+
+Name: GSL
+Description: GNU Scientific Library
+Version: 1.15
+Libs: -L/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/gsl/1.15/lib -lgsl ${GSL_CBLAS_LIB}  -lm 
+Cflags: -I/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/gsl/1.15/include

@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/pcre/8.30
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libpcreposix
+Description: PCREPosix - Posix compatible interface to libpcre
+Version: 8.30
+Libs: -L${libdir} -lpcreposix
+Cflags: -I${includedir} 
+Requires.private: libpcre

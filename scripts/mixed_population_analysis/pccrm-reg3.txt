@@ -1,0 +1,2100 @@
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t1.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t1.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t1.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t1_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t1_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t1_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t10.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t10.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t10.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t10_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t10_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t10_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t11.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t11.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t11.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t11_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t11_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t11_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t12.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t12.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t12.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t12_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t12_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t12_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t13.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t13.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t13.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t13_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t13_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t13_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t14.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t14.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t14.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t14_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t14_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t14_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t15.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t15.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t15.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t15_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t15_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t15_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t16.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t16.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t16.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t16_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t16_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t16_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t17.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t17.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t17.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t17_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t17_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t17_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t18.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t18.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t18.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t18_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t18_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t18_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t19.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t19.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t19.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t19_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t19_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t19_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t2.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t2.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t2.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t2_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t2_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t2_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t20.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t20.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t20.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t20_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t20_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t20_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t21.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t21.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t21.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t21_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t21_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t21_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t22.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t22.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t22.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t22_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t22_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t22_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t23.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t23.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t23.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t23_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t23_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t23_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t24.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t24.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t24.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t24_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t24_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t24_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t25.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t25.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t25.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t25_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t25_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t25_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t26.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t26.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t26.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t26_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t26_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t26_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t27.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t27.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t27.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t27_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t27_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t27_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t28.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t28.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t28.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t28_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t28_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t28_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t29.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t29.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t29.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t29_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t29_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t29_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t3.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t3.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t3.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t3_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t3_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t3_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t30.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t30.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t30.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t30_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t30_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t30_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t31.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t31.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t31.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t31_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t31_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t31_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t32.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t32.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t32.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t32_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t32_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t32_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t33.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t33.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t33.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t33_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t33_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t33_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t34.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t34.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t34.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t34_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t34_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t34_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t35.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t35.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t35.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t35_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t35_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t35_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t36.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t36.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t36.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t36_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t36_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t36_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t37.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t37.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t37.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t37_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t37_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t37_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t38.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t38.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t38.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t38_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t38_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t38_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t39.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t39.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t39.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t39_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t39_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t39_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t4.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t4.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t4.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t4_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t4_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t4_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t5.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t5.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t5.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t5_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t5_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t5_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t6.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t6.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t6.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t6_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t6_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t6_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t7.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t7.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t7.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t7_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t7_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t7_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t73.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t73.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t73.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t73_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t73_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t73_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t76.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t76.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t76.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t76_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t76_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t76_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t8.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t8.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t8.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t8_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t8_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t8_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t80.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t80.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t80.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t80_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t80_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t80_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t9.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w1Phase_t9.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2_w3YFP Cube_t9.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t9_phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t9_phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3/KvK_lowexp_PccrM_reg3_2__t9_signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 

@@ -1,0 +1,11 @@
+source ~/projects/virtual_python/microbe/bin/activate
+
+TODO:
+1. Work on '/Users/kerenlasker/projects/opto/microscopy/scripts/data/cell_outline2.txt', this is a hard one. mesh does not look as great, need to further extend the skeleton.
+2. 
+
+
+Where we are?
+cell2 does not work. I think it has to do with indexes. Check that.
+build a benchmark of cells to test the program on.
+I am moving to modeling for a bit. I should make a figure on the cells.

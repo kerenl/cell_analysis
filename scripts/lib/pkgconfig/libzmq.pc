@@ -1,0 +1,10 @@
+prefix=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/zeromq-universal/2.2.0
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libzmq
+Description: 0MQ c++ library
+Version: 2.2.0
+Libs: -L${libdir} -lzmq
+Cflags: -I${includedir}

@@ -1,0 +1,1800 @@
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C1-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C1-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-C2-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-C2-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-4_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-4_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide1-NA1000-4_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-4__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-4__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide1-NA1000-4__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C3-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C3-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-C4-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-C4-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide2-NA1000-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide2-NA1000-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-NA1000-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-NA1000-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X1-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X1-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide3-X2-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide3-X2-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-NA1000-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-NA1000-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X3-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X3-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-1_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-1_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-1_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-1__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-1__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-1__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-2_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-2_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-2_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-2__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-2__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-2__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 
+//open all files
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-3_w1Phase.TIF");
+rename("phase");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-3_w1Phase.TIF");
+rename("phase_copy");
+open("/Users/kerenlasker/projects/microscope_data_sync/Keren/2013-12-05/slide4-X4-3_w2YFP Cube.TIF");
+rename("signal");
+//segment cells
+selectWindow("phase");
+setAutoThreshold("Default");
+run("Analyze Particles...", "size=50-250 circularity=0-1 show=Nothing display exclude clear summarize add");
+//select all particles
+length = roiManager("count");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-3__phase_analysis.csv" );
+run("Clear Results");
+//run a laplacian on the phase image to find out of focus cells
+selectWindow("phase_copy");
+run("DifferentialsOnlyLap ");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results", "/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-3__phase_lap_analysis.csv");
+//select in-focus cells
+array2 = newArray("0");
+array1_all = newArray("0");
+for (jj=1;jj<roiManager("count");jj++){
+  roiManager("Select", jj);
+  array1_all = Array.concat(array1_all,jj);
+  if (getResult("Mean", jj) > 1000) {
+    array2 = Array.concat(array2,jj);
+  }
+}
+roiManager("Deselect");
+run("Clear Results");
+//calculate the signal on all cells (for in-focus cells select array2)
+roiManager("select", array1_all);
+selectWindow("signal");
+roiManager("measure");
+selectWindow("Results");
+saveAs("Results","/Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis//slide4-X4-3__signal_analysis.csv");
+selectWindow("Results"); 
+run("Close"); 
+selectWindow("ROI Manager"); 
+run("Close"); 
+selectWindow("Summary"); 
+run("Close");
+ while (nImages>0) {
+selectImage(nImages); 
+close(); 
+} 

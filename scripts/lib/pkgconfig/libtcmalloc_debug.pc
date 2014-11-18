@@ -1,0 +1,13 @@
+prefix=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/google-perftools/1.8
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: google-perftools
+Version: 1.8
+Description: Performance tools for C++
+URL: http://code.google.com/p/google-perftools/
+Requires:
+Libs: -L${libdir} -ltcmalloc_debug
+Libs.private: -D_THREAD_SAFE  
+Cflags: -I${includedir}

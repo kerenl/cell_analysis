@@ -1,0 +1,142 @@
+import matplotlib.patches
+import matplotlib.pyplot as plt
+import shapely.geometry
+import skimage.io, skimage.color
+import os,sys,random,math
+import numpy as np
+import utils2
+from collections import namedtuple
+
+
+######## TODO - make the shape bigger
+#        coords = coords2.buffer(2)
+#http://toblerity.org/shapely/manual.html#object.buffer
+######
+
+
+
+ProcessedCell=namedtuple('ProcessedCell',['coords','outline','skeleton','mesh','regions'])
+
+
+
+def mask_signal(image,cell):
+    #image=np.fliplr(image1)
+    #image=image[::-1]
+    # plt.imshow(image)
+    # plt.show()
+    # print "max:",np.max(image)
+    # print "min:",np.min(image)
+    # print np.where(image>0.45)
+    # print np.where(image<0.012)
+    # sys.exit()
+
+    #http://stackoverflow.com/questions/21328854/shapely-and-matplotlib-point-in-polygon-not-accurate-with-geolocation
+    # import pyproj
+    # from shapely.geometry import Polygon, Point
+    # from shapely.ops import transform
+    # from functools import partial
+
+    # project = partial(
+    #     pyproj.transform,
+    #     pyproj.Proj(init='epsg:4326'),
+    #     pyproj.Proj('+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs'))
+    
+    yfp_profile=[]
+    #http://stackoverflow.com/questions/8833950/how-to-determine-which-points-are-inside-of-a-polygon-and-which-are-not-large-n
+    print "number of regions",len(cell.regions)
+    for region in cell.regions:
+        #fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(8, 4))
+        #ax0.imshow(image,origin="lower", cmap = matplotlib.cm.Greys_r)
+        #poly = Polygon(region)
+        #poly_g = transform(project, poly)
+        g1 = shapely.geometry.Polygon(region)
+        #aa=np.zeros([len(region),2])
+        #for i,e in enumerate(region):
+        #    aa[i,:]=e
+        #path=matplotlib.path.Path(aa)
+        data_mask=np.zeros(image.shape)
+        signal=0
+        counter=0
+        for i in range(int(math.floor(g1.bounds[0])),int(math.ceil(g1.bounds[2]))+1):
+            for j in range(int(math.floor(g1.bounds[1])),int(math.ceil(g1.bounds[3]))+1):
+                #for i in range(image.shape[0]):
+                #for j in range(image.shape[1]):
+                #if poly_g.contains(transform(project,Point(i,j))):
+                #if path.contains_point([i,j]):
+                if g1.contains(shapely.geometry.Point(i,j)):
+                    signal+=image[i][j]
+                    counter+=1
+                    data_mask[j,i]=1   #why does it need to be j,i ???
+                    #ax0.plot(i,j,'ro')
+        
+        print "new region",region,"contains",np.sum(data_mask),"points"
+        signal1=image*data_mask
+        #ax1.imshow(data_mask,origin="lower",cmap = matplotlib.cm.Greys_r)
+        yfp_profile.append(np.sum(signal1)/np.sum(data_mask))#signal/counter)#np.sum(signal)/np.sum(data_mask))
+        #plt.show()
+        #plt.show()
+    print yfp_profile
+    plt.plot(yfp_profile)
+    plt.show()
+
+if __name__=="__main__":
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    processed_cells=[]
+    filename_phase = os.path.join('/Users/kerenlasker/projects/opto/microscopy/scripts/data/few/set1','KL5010-1_phase_set1_mask.tif')
+
+    #'KL5010-1_phase_set1_one_cell2.tif')
+
+    #'KL5010-1_phase_set1_mask.tif')
+   
+    filename_yfp = os.path.join('/Users/kerenlasker/projects/opto/microscopy/scripts/data/few/set1','KL5010-1_YFP_set1.tif')
+
+    #'KL5010-1_YFP_set1_one_cell2.tif')
+
+    #'KL5010-1_YFP_set1.tif')
+    #'KL5010-1_YFP_set1_one_cell2.tif')
+
+    #filename = os.path.join('/Users/kerenlasker/projects/opto/microscopy/scripts/data/few/set1', 'ii1.tif') #cells are white
+
+    #transform the data
+    data1 = skimage.io.imread(filename_phase)
+    if len(data1.shape)==3:
+        data1=skimage.color.rgb2gray(data1)
+    phase_data=1.-data1
+    yfp_data1 = skimage.io.imread(filename_yfp)
+    if len(yfp_data1.shape)==3:
+        yfp_data1=skimage.color.rgb2gray(yfp_data1)
+    yfp_data=yfp_data1
+    #yfp_data2 = np.fliplr(yfp_data1)
+    
+    # print len(data)
+    # print data.shape[2]
+    #if the image is RGB, change it
+    #plt.imshow(phase_data[::-1],origin='lower')
+    polygons = utils2.get_cells(phase_data)
+    for i,coords in enumerate(polygons[:5]):
+        print "-------polygon",i
+        outline = utils2.get_outline_from_polygon_coordinates(coords)
+        skel = utils2.get_skeleton_from_outline_with_extension(outline)
+        ax.plot(skel[:,0],skel[:,1],'bo')
+        [lines,regions,rects]=utils2.create_mesh2(skel,outline)
+        plt.annotate(
+            "cell_%d"%(i), xy = (skel[0,0], skel[0,1]), xytext = (-20, 20),
+        textcoords = 'offset points', ha = 'right', va = 'bottom',
+        bbox = dict(boxstyle = 'round,pad=0.5', fc = 'yellow', alpha = 0.5),
+        arrowprops = dict(arrowstyle = '->', connectionstyle = 'arc3,rad=0'))
+        processed_cells.append(ProcessedCell(coords,outline,skel,lines,regions))
+        plt.show()
+        mask_signal(yfp_data,processed_cells[-1])
+        plt.show()
+        
+    # plt.show() 
+    # plt.imshow(yfp_data)#,origin="lower")
+    # plt.plot(processed_cells[0].coords[:,0],processed_cells[0].coords[:,1],'bo')
+    # plt.show()
+    # mask_signal(yfp_data,processed_cells[0])
+    # plt.show()
+
+    #now get the YFP profile for each cell

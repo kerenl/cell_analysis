@@ -1,0 +1,10 @@
+prefix=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/graphviz/2.28.0
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/graphviz
+
+Name: libxdot
+Description: Library for parsing graphs in xdot format
+Version: 2.28.0
+Libs: -L${libdir} -lxdot
+Cflags: -I${includedir}

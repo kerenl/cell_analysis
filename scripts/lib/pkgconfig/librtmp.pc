@@ -1,0 +1,12 @@
+prefix=/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/rtmpdump/2.3
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+incdir=${prefix}/include
+
+Name: librtmp
+Description: RTMP implementation
+Version: v2.3
+Requires: libssl,libcrypto
+URL: http://rtmpdump.mplayerhq.hu
+Libs: -L${libdir} -lrtmp -lz
+Cflags: -I${incdir}

@@ -1,0 +1,66 @@
+source ~/projects/virtual_python/microbe/bin/activate
+#prepare files for J5 segmentation
+python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro.py -i ~/projects/microscope_data_sync/Keren/2013-12-14/ -o /Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/2013-12-14-analysis/
+#run segmentation
+in J5 open plugin->macro->run
+#analyze
+~/projects/pymicrobe/microscopy_code/analyze_imageJ_segmentation.py  -i /Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/2013-12-14-analysis -o test.csv
+
+
+#Analysis of 2013-12-14 did not make much sense. Most cells are at background.
+
+trying:
+
+python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro_with_focus.py -i ~/projects/microscope_data_sync/Keren/2013-12-05/ -o /Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-05-analysis/ -s imageJ_2013_12_05_analysis_script.txt
+
+This looks good.
+I will also analyse : 2013-12-12, which are regions 5-8.
+
+python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro_with_focus.py -i ~/projects/microscope_data_sync/Keren/2013-12-12/ -o /Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/2013-12-12-analysis/ -s imageJ_2013_12_12_analysis_script.txt -c CFP
+
+
+I should also analyze the old time lapses.
+These are :
+
+====== X1:
+python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro_with_focus.py -i /Users/kerenlasker/projects/microscope_data_sync/Justin/2013_01_17_xyl_reg_1 -o /Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/Justin-2013-01-17-xyl-reg1 -s xyl-reg1.txt -c YFP
+python ~/projects/pymicrobe/microscopy_code/analyze_imageJ_TL_segmentation.py -i /Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin-2013-01-17-xyl-reg1 -o output.csv -s PxylX_region1_KL__ 
+
+====== Ccrm1:
+python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro_with_focus.py -i /Users/kerenlasker/projects/microscope_data_sync/Justin/2013_01_22 -o /Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/Justin-2013_01_22 -s pccrm-reg1.txt -c YFP
+
+python ~/projects/pymicrobe/microscopy_code/analyze_imageJ_TL_segmentation.py -i /Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin-2013-01-17-xyl-reg1 -o output.csv -s PxylX_region1_KL__ 
+
+
+====== Ccrm2:
+python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro_with_focus.py -i /Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_11_low_exp_Pccrm_region2 -o /Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_11_low_exp_Pccrm_region2 -s pccrm-reg2.txt -c YFP
+
+python ~/projects/pymicrobe/microscopy_code/analyze_imageJ_TL_segmentation.py -i Justin_2013_03_11_low_exp_Pccrm_region2 -o Pcrrm_reg2.csv -s P2_ccrM_low_exp_timelapse_1__
+
+====Ccrm3:
+`kerenlasker$ python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro_with_focus.py -i /Users/kerenlasker/projects/microscope_data_sync/Justin/2013_03_15_low_exp_Pcccrm_region3/ -o /Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_03_15_low_exp_Pcccrm_region3 -s pccrm-reg3.txt -c YFP
+
+python ~/projects/pymicrobe/microscopy_code/analyze_imageJ_TL_segmentation.py -i Justin_2013_03_15_low_exp_Pcccrm_region3/ -o Pccrm_reg2.txt -s KvK_lowexp_PccrM_reg3_2__
+
+
+
+
+AUGUST 2014:
+
+== Xyl region 1:
+python ~/projects/pymicrobe/microscopy_code/analyze_imageJ_TL_segmentation_aug_2014.py -i /Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin-2013-01-17-xyl-reg1 -o output.csv -s PxylX_region1_KL__ 
+
+== Xyl region 2:
+
+python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro_with_focus.py -i /Users/kerenlasker/projects/microscope_data_sync/Justin/2013_01_21_xyl_reg_2/ -o /Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/Justin_2013_01_21_xyl_reg2 -s xyl-reg2_process.txt -c YFP
+
+run  xyl-reg2_process.txt as a macro in imageJ
+
+===== Xyl region 3
+
+python ~/projects/pymicrobe/microscopy_code/analyze_imageJ_TL_segmentation_aug_2014.py -i /Users/kerenlasker/projects/positioning/microscope_analysis/mixed_population_analysis/Justin_2013_01_28_xyl_reg3/ -o xyl_reg3_output.csv -s Xyl_region3_venus_KL1__
+
+===== Xyl region 4
+
+
+python ~/projects/pymicrobe/microscopy_code/prepare_imagej_macro_with_focus.py -i /Users/kerenlasker/projects/microscope_data_sync/Justin/2013_02_08-Pxyl-region4/ -o /Users/kerenlasker/projects//positioning/microscope_analysis/mixed_population_analysis/Justin_xyl_reg4 -s xyl-reg4_process.txt -c YFP

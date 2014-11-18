@@ -1,0 +1,68 @@
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+		   HDF5 Version: 1.8.9
+		  Configured on: Tue Apr  1 03:55:01 CEST 2014
+		  Configured by: kerenlasker@users-MacBook-Pro.local
+		 Configure mode: production
+		    Host system: i386-apple-darwin12.5.0
+	      Uname information: Darwin users-MacBook-Pro.local 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT 2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64
+		       Byte sex: little-endian
+		      Libraries: 
+	     Installation point: /Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/Cellar/hdf5/1.8.9
+
+Compiling Options:
+------------------
+               Compilation Mode: production
+                     C Compiler: /usr/bin/clang
+                         CFLAGS: -Os -w -pipe -march=native -Qunused-arguments
+                      H5_CFLAGS:  
+                      AM_CFLAGS: 
+                       CPPFLAGS: -isystem /Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/include
+                    H5_CPPFLAGS:   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS: -I/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/include 
+               Shared C Library: yes
+               Static C Library: yes
+  Statically Linked Executables: no
+                        LDFLAGS: -L/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/lib
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS:  -L/Users/kerenlasker/projects/cell_profiler/src/CPhomebrew/lib
+ 	 	Extra libraries:  -lsz -lz -lm 
+ 		       Archiver: ar
+ 		 	 Ranlib: ranlib
+ 	      Debugged Packages: 
+		    API Tracing: no
+
+Languages:
+----------
+                        Fortran: no
+
+                            C++: yes
+                   C++ Compiler: /usr/bin/clang++
+                      C++ Flags: -Os -w -pipe -march=native -Qunused-arguments
+                   H5 C++ Flags:  
+                   AM C++ Flags: 
+             Shared C++ Library: yes
+             Static C++ Library: yes
+
+Features:
+---------
+                  Parallel HDF5: no
+             High Level library: yes
+                   Threadsafety: no
+            Default API Mapping: v18
+ With Deprecated Public Symbols: yes
+         I/O filters (external): deflate(zlib),szip(encoder)
+         I/O filters (internal): shuffle,fletcher32,nbit,scaleoffset
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+Clear file buffers before write: yes
+           Using memory checker: no
+         Function Stack Tracing: no
+                           GPFS: no
+      Strict File Format Checks: no
+   Optimization Instrumentation: no
+       Large File Support (LFS): yes
